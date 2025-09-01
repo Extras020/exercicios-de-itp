@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1755729471 source:c:\users\labinfo4\desktop\c de cria\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
