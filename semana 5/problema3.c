@@ -4,6 +4,7 @@
 
 int verifica_altura(float a, float b);
 int verifica_seguranca(float a, float b);
+float calcula_altura(float a, float b);
 
 int main()
 {
@@ -28,15 +29,24 @@ int main()
     }
     return 0;
 }
-int verifica_altura(float a, float b){
+float calcula_altura(float a, float b){
     float altura;
     altura = sin(cos(b)+a)+cos(b+sin(a));
-    if(altura < 0 || altura > 2){
-        return 1;
-    }
-    else{
-        return 0;
-    }
+    return altura;
+}
+int verifica_altura(float a, float b){
+    int cont = 0;
+    float altura;
+    altura = calcula_altura(a, b);
+    if(altura < 0 || altura > 2) cont++;
+    altura = calcula_altura(a+0.2, b+0.2);
+    if(altura < 0 || altura > 2) cont++;
+    altura = calcula_altura(a-0.2, b-0.2);
+    if(altura < 0 || altura > 2) cont++;
+    altura = calcula_altura(a+0.2, b-0.2);
+    if(altura < 0 || altura > 2) cont++;
+    altura = calcula_altura(a-0.2, b+0.2);
+    if(altura < 0 || altura > 2) cont++;
 }
 int verifica_seguranca(float a, float b){
     int cont = 0, i;
