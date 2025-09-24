@@ -47,25 +47,18 @@ int verifica_altura(float a, float b){
     if(altura < 0 || altura > 2) cont++;
     altura = calcula_altura(a-0.2, b+0.2);
     if(altura < 0 || altura > 2) cont++;
+    if(cont != 0) return 1;
+    else return 0;
 }
 int verifica_seguranca(float a, float b){
-    int cont = 0, i;
-    float altura;
-    altura = sin(cos(b)+a+2)+cos(b+sin(a+2));
-    if(altura < 0 || altura > 2){
-        cont++;
-    }
-    altura = sin(cos(b)+a-2)+cos(b+sin(a-2));
-    if(altura < 0 || altura > 2){
-        cont++;
-    }
-    altura = sin(cos(b-2)+a)+cos(b-2+sin(a));
-    if(altura < 0 || altura > 2){
-        cont++;
-    }
-    altura = sin(cos(b+2)+a)+cos(b+2+sin(a));
-    if(altura < 0 || altura > 2){
-        cont++;
-    }
+    int cont = 0, status;
+    status = verifica_altura(a+2, b);
+    if(status == 0) cont++;
+    status = verifica_altura(a-2, b);
+    if(status == 0) cont++;
+    status = verifica_altura(a, b+2);
+    if(status == 0) cont++;
+    status = verifica_altura(a, b-2);
+    if(status == 0) cont++;
     return cont;
 }

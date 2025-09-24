@@ -16,7 +16,7 @@ int main()
     for(a = 0; a < n; a++){
         if(gabarito[a] == respostas[a]) cont++;
     }
-    printf("%d acertos\n", cont);
+    printf("%d acerto(s)\n", cont);
     return 0;
 }
 void define_vetor(int vet[], int x){
